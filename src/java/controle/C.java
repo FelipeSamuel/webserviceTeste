@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author max
+ * @author Marcio Vasconcelos
  */
 public class C {
 
