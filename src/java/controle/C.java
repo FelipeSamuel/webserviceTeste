@@ -16,7 +16,7 @@ public class C {
     private static final String URL = "jdbc:mysql://localhost/dbTeste";
     private static final String DRIVER = "com.mysql.jdbc.driver";
     private static final String USER = "root";
-    private static final String PSW = " DL310184";
+    private static final String PSW = "dl310184";
     
     private static Connection conn;
     
