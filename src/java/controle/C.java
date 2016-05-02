@@ -5,8 +5,7 @@
  */
 package controle;
 
-//import com.mysql.jdbc.Connection;
-import java.sql.Connection;
+import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -19,7 +18,7 @@ import java.util.logging.Logger;
 public class C {
 
     private static final String URL = "jdbc:mysql://localhost/dbTeste";
-    private static final String DRIVER = "com.mysql.jdbc.driver";
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String USER = "root";
     private static final String PSW = "dl310184";
 
@@ -27,7 +26,7 @@ public class C {
 
     public static Connection cd() throws ClassNotFoundException, SQLException {
         Class.forName(DRIVER);
-        conn = DriverManager.getConnection(URL, USER, PSW);
+        conn = (Connection) DriverManager.getConnection(URL, USER, PSW);
 
         return conn;
 
