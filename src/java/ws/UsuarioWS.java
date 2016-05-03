@@ -17,6 +17,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import modelo.Usuario;
 
@@ -39,6 +40,7 @@ public class UsuarioWS {
 
     /**
      * Retrieves representation of an instance of ws.UsuarioWS
+     *
      * @return an instance of java.lang.String
      */
     @GET
@@ -50,36 +52,53 @@ public class UsuarioWS {
 
     /**
      * Retrieves representation of an instance of ws.UsuarioWS
+     *
      * @return an instance of java.lang.String
      */
     @GET
     @Path("get/usuarios")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getUsuarios() throws ClassNotFoundException, SQLException{
-            Gson g = new Gson();
-            UsuarioDAO dao = new UsuarioDAO();
-            List<Usuario> usuario = dao.getUsuario();
-            return g.toJson(usuario);
-            
-            
-        
+    public String getUsuarios() throws ClassNotFoundException, SQLException {
+        Gson g = new Gson();
+        UsuarioDAO dao = new UsuarioDAO();
+        List<Usuario> usuario = dao.getUsuario();
+        return g.toJson(usuario);
+
+    }
+
+    @GET
+    @Path("/deletar/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String deletarUsuario(@PathParam("id") int id) {
+        UsuarioDAO dao = new UsuarioDAO();
+        if(dao.deletarUsuario(id)) return "true"; else return "false";
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/inserir")
+    public boolean inserirUsuario(String content) {
+        Gson g = new Gson();
+        Usuario u = (Usuario) g.fromJson(content, Usuario.class);
+        UsuarioDAO dao = new UsuarioDAO();
+
+        return dao.inserirUsuario(u);
     }
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/inserir")
-    public boolean inserirUsuario(String content){
-    Gson g = new Gson();
-    Usuario u = (Usuario) g.fromJson(content, Usuario.class);
-    UsuarioDAO dao = new UsuarioDAO();
-    
-        return dao.inserirUsuario(u);
-        
+    @Path("/atualizar")
+    public boolean atualizarUsuario(String content) {
+        Gson g = new Gson();
+        Usuario u = (Usuario) g.fromJson(content, Usuario.class);
+        UsuarioDAO dao = new UsuarioDAO();
+
+        return dao.atualizarUsuario(u);
     }
-    
-    
+
     /**
      * PUT method for updating or creating an instance of UsuarioWS
+     *
      * @param content representation for the resource
      */
     @PUT

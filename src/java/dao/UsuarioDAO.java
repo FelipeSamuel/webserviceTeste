@@ -63,5 +63,38 @@ public class UsuarioDAO {
             return false;
         }
     }
+    
+    public boolean atualizarUsuario(Usuario u) {
+        sql = "UPDATE usuario SET nome = ?,senha = ? WHERE id = ?;";
+        try {
+            conn = C.cd();
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, u.getNome());
+            pst.setString(2, u.getPsw());
+            pst.setInt(3, u.getId());
+            pst.executeUpdate();
+            C.db();
+            return true;
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
+    public boolean deletarUsuario(int id) {
+        String sql = "DELETE FROM usuario WHERE id = ?;";
+        try {
+            conn = C.cd();
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1, id);
+            pst.execute();
+            C.db();
+            return true;
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+
+    }
 
 }
