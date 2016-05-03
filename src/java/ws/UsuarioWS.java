@@ -14,6 +14,7 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
@@ -63,6 +64,19 @@ public class UsuarioWS {
             
         
     }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/inserir")
+    public boolean inserirUsuario(String content){
+    Gson g = new Gson();
+    Usuario u = (Usuario) g.fromJson(content, Usuario.class);
+    UsuarioDAO dao = new UsuarioDAO();
+    
+        return dao.inserirUsuario(u);
+        
+    }
+    
     
     /**
      * PUT method for updating or creating an instance of UsuarioWS
