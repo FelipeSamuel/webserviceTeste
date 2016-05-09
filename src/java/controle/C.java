@@ -17,10 +17,10 @@ import java.util.logging.Logger;
  */
 public class C {
 
-    private static final String URL = "jdbc:mysql://localhost/dbTeste";
+    private static final String URL = "jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/jbossas";
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String USER = "root";
-    private static final String PSW = "dl310184";
+    private static final String USER = "adminsuvtKVR";
+    private static final String PSW = "auz4i5CshJrL";
 
     private static Connection conn;
 
