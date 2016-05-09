@@ -17,8 +17,8 @@ import java.util.logging.Logger;
  */
 public class C {
 
-    private static final String URL = "jdbc:mysql://127.3.23.2/jbossas";
-    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String URL = "jdbc:mysql://jbossas-mvasconcelos.rhcloud.com";
+    private static final String DRIVER = "com.mysql.jdbc.Driver";   
     private static final String USER = "adminsuvtKVR";
     private static final String PSW = "auz4i5CshJrL";
 
