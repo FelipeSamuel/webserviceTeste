@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class C {
 
-    private static final String URL = "jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/jbossas";
+    private static final String URL = "jdbc:mysql://127.3.23.2/jbossas";
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String USER = "adminsuvtKVR";
     private static final String PSW = "auz4i5CshJrL";
