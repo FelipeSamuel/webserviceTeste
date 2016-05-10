@@ -17,10 +17,10 @@ import java.util.logging.Logger;
  */
 public class C {
 
-    private static final String URL = "jdbc:mysql://jbossas-mvasconcelos.rhcloud.com";
+    private static final String URL = "jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT";
     private static final String DRIVER = "com.mysql.jdbc.Driver";   
-    private static final String USER = "adminsuvtKVR";
-    private static final String PSW = "auz4i5CshJrL";
+    private static final String USER = "adminkbbY4Ra";
+    private static final String PSW = "MW381jJxPbaJ";
 
     private static Connection conn;
 
